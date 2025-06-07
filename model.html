@@ -1,0 +1,126 @@
+Based on the knowledge sources, I can provide you with code to deploy a Roboflow model in a website using roboflow.js. Here's a basic implementation:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roboflow Model Demo</title>
+    <!-- Add the inference.js script -->
+    <script src="https://cdn.jsdelivr.net/npm/inferencejs"></script>
+    <style>
+        #video-container {
+            position: relative;
+            width: 640px;
+            height: 480px;
+        }
+        #webcam, #canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roboflow Model Demo</h1>
+    <div id="video-container">
+        <video id="webcam" autoplay muted></video>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+        // Replace with your Roboflow API key, model name, and version
+        const publishable_key = "YOUR_ROBOFLOW_API_KEY";
+        const model = "YOUR_MODEL_NAME";
+        const version = YOUR_MODEL_VERSION;
+
+        // Elements
+        const webcam = document.getElementById("webcam");
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Initialize webcam
+        async function setupWebcam() {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                audio: false,
+                video: {
+                    width: 640,
+                    height: 480
+                }
+            });
+            webcam.srcObject = stream;
+            
+            return new Promise((resolve) => {
+                webcam.onloadedmetadata = () => {
+                    canvas.width = webcam.videoWidth;
+                    canvas.height = webcam.videoHeight;
+                    resolve();
+                };
+            });
+        }
+
+        // Load model and start detection
+        async function startDetection() {
+            await setupWebcam();
+            
+            // Load the model
+            const model_url = `https://detect.roboflow.com/${model}/${version}?api_key=${publishable_key}`;
+            const model_instance = await inference.load(model_url);
+            
+            // Start detection loop
+            detectFrame(model_instance);
+        }
+
+        // Detection loop
+        async function detectFrame(model_instance) {
+            // Run inference on the webcam frame
+            const predictions = await model_instance.detect(webcam);
+            
+            // Clear canvas and draw video frame
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw predictions
+            predictions.forEach(prediction => {
+                // Draw bounding box
+                ctx.strokeStyle = "#00FF00";
+                ctx.lineWidth = 3;
+                ctx.strokeRect(
+                    prediction.bbox.x,
+                    prediction.bbox.y,
+                    prediction.bbox.width,
+                    prediction.bbox.height
+                );
+                
+                // Draw label
+                ctx.fillStyle = "#00FF00";
+                ctx.font = "18px Arial";
+                ctx.fillText(
+                    `${prediction.class} ${Math.round(prediction.confidence * 100)}%`,
+                    prediction.bbox.x,
+                    prediction.bbox.y - 5
+                );
+            });
+            
+            // Continue detection
+            requestAnimationFrame(() => detectFrame(model_instance));
+        }
+
+        // Start the application
+        startDetection();
+    </script>
+</body>
+</html>
+```
+
+To use this code:
+
+1. Replace `YOUR_ROBOFLOW_API_KEY` with your Roboflow publishable API key
+2. Replace `YOUR_MODEL_NAME` with your model name
+3. Replace `YOUR_MODEL_VERSION` with your model version number (as a number, not a string)
+
+This code creates a simple webpage that:
+- Accesses your webcam
+- Loads your Roboflow model using inference.js
+- Continuously runs detection on webcam frames
+- Draws bounding boxes and labels for detected objects
+
+For more advanced implementations, you can check out the [Roboflow Web Quickstart template on Repl.it](https://replit.com/@roboflow/Roboflow-Getting-Started?v=1) or the [documentation for the Web Browser SDK](https://docs.roboflow.com/deploy/sdks/web-browser).

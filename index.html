@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time River Health Monitoring</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+    <header class="d-flex flex-wrap justify-content-center py-3">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img alt="" width="60" height="60" data-ssr-src-done="true" fetchpriority="high" src="media/regenlogo.png" style="width: 60px; height: 60px; object-fit: contain; object-position: center center;">          <span class="fs-4">ReGenRivers</span>
+        </a>
+  
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="http://localhost:3000" class="nav-link">Join</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contactus.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </header>
+      
+      <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="media/regenbackground.mp4.download/regenbackground.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay-text">
+            <h1 style="color: #092E6E; font-size: 88px;font-family: 'Poppins', sans-serif;font-weight: bold;">Real-Time River Health Monitoring</h1>
+            <p style="color: #092E6E; font-size: 22px;font-family: 'Poppins', sans-serif;font-weight: bold;">Join the environmental movement now</p>
+            <a href="https://forms.gle/UUfCdHb3fqZAmjp27" class="btn btn-primary btn-lg">Join the initiative</a>
+        </div>
+
+        
+    </div>
+
+    
+    <style>
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full screen */
+        overflow: hidden;
+    }
+    
+    video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    }
+    </style>
+ <div class="container px-4 py-5" id="custom-cards">
+  
+
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" 
+               style="background-image: url('media/rgrh1.jpeg'); 
+                      background-size: cover; background-position: center; background-repeat: no-repeat;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">50</h3>
+                  <h4>Cleanup Events</h4>
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" 
+               style="background-image: url('media/rgrh2.jpeg') ;background-size: cover; background-position: center; background-repeat: no-repeat;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">10</h3>
+                  <h4>Hotspots Detected</h4>
+              </div>
+          </div>
+      </div>
+
+      <div class="col">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" 
+               style="background-image: url('media/rgrh3.jpeg');background-size: cover; background-position: center; background-repeat: no-repeat;">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">200</h3>
+                  <h4>Contributing Citizens</h4>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<section class="our-mission-features py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Mission</h2>
+      <div class="row">
+        
+        <div class="col-sm-6 col-md-4 text-center mb-4">
+          <img src="media/wave.png" alt="Monitoring icon" class="feature-icon mb-3" width="50" height="50">
+          <h5 class="feature-title">River Health Monitoring</h5>
+          <p class="feature-text">
+            Real‑time river health monitoring is crucial for understanding the state of our rivers and taking immediate action when needed. Our custom dataset and YOLOv8 technology enable us to collect and analyze data with precision.
+          </p>
+        </div>
+        
+        <div class="col-sm-6 col-md-4 text-center mb-4">
+          <img src="media/marine.png" alt="Crowdsourcing icon" class="feature-icon mb-3" width="50" height="50">
+          <h5 class="feature-title">Crowdsourced Solutions</h5>
+          <p class="feature-text">
+            Engaging citizens in monitoring and conservation efforts is at the core of our approach. We believe in the power of crowdsourced solutions to foster a sense of shared responsibility for our rivers.
+          </p>
+        </div>
+        
+        <div class="col-sm-6 col-md-4 text-center mb-4">
+          <img src="media/social-care.png" alt="Driving change icon" class="feature-icon mb-3" width="50" height="50">
+          <h5 class="feature-title">Driving Change</h5>
+          <p class="feature-text">
+            By building a community of contributing citizens, we aim to drive positive change in the health of our rivers. Join us in making a lasting impact on our environment.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="how-it-works-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        
+        <!-- Text + Button -->
+        <div class="col-md-6 text-container mb-4 mb-md-0">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-copy">
+            Real‑time river health monitoring is made possible through cutting‑edge technology and the active participation of citizens. 
+            Our platform allows you to explore the data, understand the health of the rivers, and be part of the solution. 
+            Join us in safeguarding the future of our rivers.
+          </p>
+          <a href="join.html" class="btn btn-primary btn-lg">Join Us</a>
+        </div>
+        
+        <!-- Image -->
+        <div class="col-md-6 image-container">
+          <img src="media/sea-turtle.jpeg" alt="Sea turtle swimming near plastic waste" class="img-fluid rounded">
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Carousel / Gallery -->
+
+
+      
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
